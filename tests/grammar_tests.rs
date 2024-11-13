@@ -13,7 +13,9 @@ mod tests {
 
         #[test]
         fn valid_date() -> anyhow::Result<()> {
-            let pair = TaskListGrammar::parse(Rule::date, "{2023-09-15}")?.next().unwrap();
+            let pair = TaskListGrammar::parse(Rule::date, "{2023-09-15}")?
+                .next()
+                .unwrap();
             assert_eq!(pair.as_str(), "{2023-09-15}");
             Ok(())
         }
@@ -59,18 +61,20 @@ mod tests {
 
         #[test]
         fn valid_priority() -> anyhow::Result<()> {
-            let pair = TaskListGrammar::parse(Rule::priority, "!!")?.next().unwrap();
+            let pair = TaskListGrammar::parse(Rule::priority, "!!")?
+                .next()
+                .unwrap();
             assert_eq!(pair.as_str(), "!!");
             Ok(())
         }
 
         #[test]
         fn invalid_priority() -> anyhow::Result<()> {
-            let pair = TaskListGrammar::parse(Rule::priority, "!!!!")?.next().unwrap();
+            let pair = TaskListGrammar::parse(Rule::priority, "!!!!")?
+                .next()
+                .unwrap();
 
-            assert!(
-                pair.as_str().len() <= 3
-            );
+            assert!(pair.as_str().len() <= 3);
 
             Ok(())
         }
@@ -81,7 +85,9 @@ mod tests {
 
         #[test]
         fn valid_title() -> anyhow::Result<()> {
-            let pair = TaskListGrammar::parse(Rule::description, "Meeting with team")?.next().unwrap();
+            let pair = TaskListGrammar::parse(Rule::description, "Meeting with team")?
+                .next()
+                .unwrap();
             assert_eq!(pair.as_str(), "Meeting with team");
             Ok(())
         }

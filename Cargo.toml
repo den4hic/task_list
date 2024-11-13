@@ -8,5 +8,7 @@ description = "A Rust-based parser for task lists with priority, status, date, a
 
 [dependencies]
 anyhow = "1.0.93"
+clap = "4.5.20"
 pest = "2.7.14"
 pest_derive = "2.7.14"
+thiserror = "2.0.3"
