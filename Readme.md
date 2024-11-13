@@ -1,6 +1,6 @@
 # Task List Parser in Rust
 
-- **Crates.io**: 
+- **Crates.io**: https://crates.io/crates/task_list_parser
 - **Docs**: 
 
 ## Overview
@@ -16,6 +16,6 @@ The task list parser follows a defined grammar to extract details from task desc
 
 ### Example Input
 
-! [ ] 2024-11-05 Buy groceries 
-!! [x] 2024-10-30 Finish Rust parser project 
-!!! [ ] 2024-11-10 Prepare for the meeting on Monday
+- ! [ ] 2024-11-05 Buy groceries 
+- !! [x] 2024-10-30 Finish Rust parser project 
+- !!! [ ] 2024-11-10 Prepare for the meeting on Monday
