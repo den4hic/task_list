@@ -1,6 +1,6 @@
 use anyhow::{anyhow, Ok};
 use pest::Parser;
-use task_list::{Rule, TaskListGrammar};
+use task_list_parser::{Rule, TaskListGrammar};
 
 #[cfg(test)]
 mod tests {

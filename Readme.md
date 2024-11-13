@@ -1,4 +1,4 @@
-# Task List in Rust
+# Task List Parser in Rust
 
 - **Crates.io**: 
 - **Docs**: 

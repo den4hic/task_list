@@ -2,7 +2,7 @@ use anyhow::Result;
 use clap::{Arg, Command};
 use pest::Parser;
 use std::fs;
-use task_list::*;
+use task_list_parser::*;
 
 fn main() -> Result<()> {
     let matches = Command::new("TaskListParser")
