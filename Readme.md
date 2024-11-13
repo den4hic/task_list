@@ -1,5 +1,8 @@
 # Task List in Rust
 
+- **Crates.io**: 
+- **Docs**: 
+
 ## Overview
 This project is a task list parser written in Rust using the `pest` parsing library. The parser is designed to read and interpret structured task lists, with each line containing the task's priority, completion status, start date, and description. This tool is ideal for applications involving task tracking or project management, where structured input is parsed into meaningful data for further processing or display.
 

@@ -8,4 +8,4 @@ test:
 	cargo test
 
 run:
-	cargo run -- tasks.txt
+	cargo run -- --file test.txt
