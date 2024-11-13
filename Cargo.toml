@@ -1,9 +1,12 @@
 [package]
-name = "task-list"
+name = "task_list"
 version = "0.1.0"
+authors = ["Denys Davydov d.davydov@ukma.edu.ua"]
 edition = "2021"
+description = "A Rust-based parser for task lists with priority, status, date, and description fields."
+
 
 [dependencies]
-anyhow = "1.0.92"
+anyhow = "1.0.93"
 pest = "2.7.14"
 pest_derive = "2.7.14"
