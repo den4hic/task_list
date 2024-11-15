@@ -39,7 +39,7 @@ pub enum TaskParseError {
 ///
 /// # Example
 /// ```rust
-/// use task_list::parse_year;
+/// use task_list_parser::parse_year;
 /// assert_eq!(parse_year("2024").unwrap(), 2024);
 /// assert!(parse_year("20").is_err());
 /// ```
@@ -70,7 +70,7 @@ pub fn parse_year(year: &str) -> Result<u32, TaskParseError> {
 ///
 /// # Example
 /// ```rust
-/// use task_list::parse_priority;
+/// use task_list_parser::parse_priority;
 /// assert_eq!(parse_priority("!!").unwrap(), 2);
 /// assert!(parse_priority("!!!!").is_err());
 /// ```

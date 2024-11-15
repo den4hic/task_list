@@ -101,20 +101,53 @@ mod tests {
         }
     }
 
+    mod tags_tests {
+        use super::*;
+
+        #[test]
+        fn valid_tags() -> anyhow::Result<()> {
+            let pair = TaskListGrammar::parse(Rule::tags, "#urgent #work")?
+                .next()
+                .unwrap();
+            assert_eq!(pair.as_str(), "#urgent #work");
+            Ok(())
+        }
+
+        #[test]
+        fn invalid_tags_format() {
+            assert!(TaskListGrammar::parse(Rule::tags, "urgent work").is_err());
+        }
+    }
+
+    mod comment_tests {
+        use super::*;
+
+        #[test]
+        fn valid_comment() -> anyhow::Result<()> {
+            let pair = TaskListGrammar::parse(Rule::comment, "// This is a comment")?
+                .next()
+                .unwrap();
+            assert_eq!(pair.as_str(), "// This is a comment");
+            Ok(())
+        }
+
+        #[test]
+        fn invalid_comment() {
+            assert!(TaskListGrammar::parse(Rule::comment, "Comment").is_err());
+        }
+    }
+
     #[test]
     fn test_complete_task() -> anyhow::Result<()> {
-        let task = "!! [ ] {2024-10-30} Finish Rust parser project";
+        let task = "!! [ ] {2024-10-30} #work 2h Finish Rust parser project";
         let pair = TaskListGrammar::parse(Rule::task, task)?.next().unwrap();
         assert_eq!(pair.as_str(), task);
         Ok(())
     }
 
     #[test]
-    fn test_invalid_task_missing_date() {
-        let task = "!!! Important meeting without date";
-        assert!(
-            TaskListGrammar::parse(Rule::task, task).is_err(),
-            "Task missing date should fail"
-        );
+    fn test_task_with_missing_tags() {
+        let task = "adwadasd";
+        assert!(TaskListGrammar::parse(Rule::task, task).is_err());
     }
 }

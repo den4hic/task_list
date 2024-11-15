@@ -1,9 +1,8 @@
 /// A list of tasks, where each task follows the defined `task` rule.
 task_list = { task* }
 
-/// Defines a task with a priority, status, date, and description.
-/// Fields are separated by whitespace.
-task = { priority ~ WHITE_SPACE ~ status ~ WHITE_SPACE ~ date ~ WHITE_SPACE ~ description }
+/// Defines a task with a priority, status, date, optional tags, time estimate, and description.
+task = { priority ~ WHITE_SPACE ~ status ~ WHITE_SPACE ~ date~ WHITE_SPACE ~ tags ~ WHITE_SPACE ~ time_estimate ~ WHITE_SPACE ~ description }
 
 /// Priority of the task, represented by 1 to 3 exclamation marks (`!`).
 priority = { "!"{1,3} }
@@ -12,8 +11,16 @@ priority = { "!"{1,3} }
 status = { "[" ~ ("x" | WHITE_SPACE) ~ "]" }
 
 /// Date of the task in the format `{YYYY-MM-DD}`.
-/// This consists of a year, month, and day.
 date = { "{" ~ year ~ "-" ~ month ~ "-" ~ day ~ "}" }
+
+/// Tags for the task, represented by hashtags (e.g., `#urgent`, `#work`).
+tags = { "#" ~ ASCII_ALPHANUMERIC+ ~ (WHITE_SPACE ~ "#" ~ ASCII_ALPHANUMERIC+)* }
+
+/// Time estimate for the task, represented by hours (`h`) or minutes (`m`).
+time_estimate = { ASCII_DIGIT+ ~ ("h" | "m") }
+
+/// Comment for the task, starting with `//`.
+comment = { "//" ~ (!NEWLINE ~ ANY)* }
 
 /// The year part of the date, represented by 4 digits (e.g., 2024).
 year = { ASCII_DIGIT{4} }

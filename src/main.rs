@@ -37,7 +37,6 @@ fn main() -> Result<()> {
         )
         .get_matches();
 
-
     if matches.contains_id("show-credits") {
         println!("Task List Parser by Your Name. Version 1.0.0.");
     }
